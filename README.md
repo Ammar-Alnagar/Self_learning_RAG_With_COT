@@ -1,5 +1,6 @@
 
-# Self Learning RAG With COT
+# Self Learning RAG With COT  WIP
+
 
 ## Overview
 **Self Learning RAG With COT** is a project that implements Retrieval-Augmented Generation (RAG) combined with Chain of Thought (COT) reasoning. This project aims to enhance the performance of language models by enabling them to retrieve relevant information from external sources and reason through it step by step, mimicking human-like cognitive processes.
