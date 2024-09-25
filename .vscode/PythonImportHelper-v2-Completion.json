@@ -41,10 +41,10 @@
     },
     {
         "label": "Chroma",
-        "importPath": "langchain_community.vectorstores.chroma",
-        "description": "langchain_community.vectorstores.chroma",
+        "importPath": "langchain_chroma",
+        "description": "langchain_chroma",
         "isExtraImport": true,
-        "detail": "langchain_community.vectorstores.chroma",
+        "detail": "langchain_chroma",
         "documentation": {}
     },
     {
