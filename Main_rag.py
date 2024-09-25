@@ -1,6 +1,5 @@
 from langchain_community.embeddings.ollama import OllamaEmbeddings
 from langchain_community.vectorstores.chroma import Chroma
-from langchain_community.chat_models.ollama import ChatOllama
 from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
@@ -9,6 +8,8 @@ import json
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
+
+from Indexer import index_conversations
 
 # Load environment variables (such as API keys)
 load_dotenv()
@@ -137,7 +138,10 @@ def load_conversation(file_path='Data/conversation_history.json'):
 if __name__ == "__main__":
     print("Welcome to the Mawared HR RAG system. Type 'quit' to exit.")
     
-    # Load past conversation history (if required in future interactions)
+    # Run the indexer to index past conversation history
+    index_conversations()  # Call the index_conversations function
+
+    # Load past conversation history
     conversation_history = load_conversation()
 
     while True:

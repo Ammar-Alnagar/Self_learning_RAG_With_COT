@@ -48,14 +48,6 @@
         "documentation": {}
     },
     {
-        "label": "ChatOllama",
-        "importPath": "langchain_community.chat_models.ollama",
-        "description": "langchain_community.chat_models.ollama",
-        "isExtraImport": true,
-        "detail": "langchain_community.chat_models.ollama",
-        "documentation": {}
-    },
-    {
         "label": "ChatGroq",
         "importPath": "langchain_groq",
         "description": "langchain_groq",
@@ -114,56 +106,19 @@
         "documentation": {}
     },
     {
-        "label": "loader",
-        "kind": 5,
+        "label": "index_conversations",
         "importPath": "Indexer",
         "description": "Indexer",
-        "peekOfCode": "loader = DirectoryLoader(\"./Data\", glob=\"**/*.pdf\")\nprint(\"pdf loaded loader\")\ndocuments = loader.load()\nprint(len(documents))\n# # Create embeddingsclear\nembeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=True)\n# # Create Semantic Text Splitter\n# text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type=\"interquartile\")\ntext_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,",
+        "isExtraImport": true,
         "detail": "Indexer",
         "documentation": {}
     },
     {
-        "label": "documents",
-        "kind": 5,
+        "label": "index_conversations",
+        "kind": 2,
         "importPath": "Indexer",
         "description": "Indexer",
-        "peekOfCode": "documents = loader.load()\nprint(len(documents))\n# # Create embeddingsclear\nembeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=True)\n# # Create Semantic Text Splitter\n# text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type=\"interquartile\")\ntext_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,\n    chunk_overlap=300,\n    add_start_index=True,",
-        "detail": "Indexer",
-        "documentation": {}
-    },
-    {
-        "label": "embeddings",
-        "kind": 5,
-        "importPath": "Indexer",
-        "description": "Indexer",
-        "peekOfCode": "embeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=True)\n# # Create Semantic Text Splitter\n# text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type=\"interquartile\")\ntext_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,\n    chunk_overlap=300,\n    add_start_index=True,\n)\n# # Split documents into chunks\ntexts = text_splitter.split_documents(documents)",
-        "detail": "Indexer",
-        "documentation": {}
-    },
-    {
-        "label": "text_splitter",
-        "kind": 5,
-        "importPath": "Indexer",
-        "description": "Indexer",
-        "peekOfCode": "text_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,\n    chunk_overlap=300,\n    add_start_index=True,\n)\n# # Split documents into chunks\ntexts = text_splitter.split_documents(documents)\n# # Create vector store\nvectorstore = Chroma.from_documents(\n    documents=texts, ",
-        "detail": "Indexer",
-        "documentation": {}
-    },
-    {
-        "label": "texts",
-        "kind": 5,
-        "importPath": "Indexer",
-        "description": "Indexer",
-        "peekOfCode": "texts = text_splitter.split_documents(documents)\n# # Create vector store\nvectorstore = Chroma.from_documents(\n    documents=texts, \n    embedding= embeddings,\n    persist_directory=\"./db-mawared\")\nprint(\"vectorstore created\")",
-        "detail": "Indexer",
-        "documentation": {}
-    },
-    {
-        "label": "vectorstore",
-        "kind": 5,
-        "importPath": "Indexer",
-        "description": "Indexer",
-        "peekOfCode": "vectorstore = Chroma.from_documents(\n    documents=texts, \n    embedding= embeddings,\n    persist_directory=\"./db-mawared\")\nprint(\"vectorstore created\")",
+        "peekOfCode": "def index_conversations():\n    # Load documents from a PDF file\n    loader = DirectoryLoader(\"./Data\", glob=\"**/*.pdf\")\n    print(\"Loading PDF documents...\")\n    documents = loader.load()\n    print(f\"{len(documents)} documents loaded.\")\n    # Create embeddings\n    embeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=True)\n    # Create Text Splitter\n    text_splitter = RecursiveCharacterTextSplitter(",
         "detail": "Indexer",
         "documentation": {}
     },
