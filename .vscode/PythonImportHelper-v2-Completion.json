@@ -1,0 +1,269 @@
+[
+    {
+        "label": "RecursiveCharacterTextSplitter",
+        "importPath": "langchain_text_splitters",
+        "description": "langchain_text_splitters",
+        "isExtraImport": true,
+        "detail": "langchain_text_splitters",
+        "documentation": {}
+    },
+    {
+        "label": "DirectoryLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "OllamaEmbeddings",
+        "importPath": "langchain_community.embeddings",
+        "description": "langchain_community.embeddings",
+        "isExtraImport": true,
+        "detail": "langchain_community.embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "Chroma",
+        "importPath": "langchain_community.vectorstores",
+        "description": "langchain_community.vectorstores",
+        "isExtraImport": true,
+        "detail": "langchain_community.vectorstores",
+        "documentation": {}
+    },
+    {
+        "label": "OllamaEmbeddings",
+        "importPath": "langchain_community.embeddings.ollama",
+        "description": "langchain_community.embeddings.ollama",
+        "isExtraImport": true,
+        "detail": "langchain_community.embeddings.ollama",
+        "documentation": {}
+    },
+    {
+        "label": "Chroma",
+        "importPath": "langchain_community.vectorstores.chroma",
+        "description": "langchain_community.vectorstores.chroma",
+        "isExtraImport": true,
+        "detail": "langchain_community.vectorstores.chroma",
+        "documentation": {}
+    },
+    {
+        "label": "ChatOllama",
+        "importPath": "langchain_community.chat_models.ollama",
+        "description": "langchain_community.chat_models.ollama",
+        "isExtraImport": true,
+        "detail": "langchain_community.chat_models.ollama",
+        "documentation": {}
+    },
+    {
+        "label": "ChatGroq",
+        "importPath": "langchain_groq",
+        "description": "langchain_groq",
+        "isExtraImport": true,
+        "detail": "langchain_groq",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "ChatPromptTemplate",
+        "importPath": "langchain.prompts",
+        "description": "langchain.prompts",
+        "isExtraImport": true,
+        "detail": "langchain.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "RunnablePassthrough",
+        "importPath": "langchain.schema.runnable",
+        "description": "langchain.schema.runnable",
+        "isExtraImport": true,
+        "detail": "langchain.schema.runnable",
+        "documentation": {}
+    },
+    {
+        "label": "StrOutputParser",
+        "importPath": "langchain.schema.output_parser",
+        "description": "langchain.schema.output_parser",
+        "isExtraImport": true,
+        "detail": "langchain.schema.output_parser",
+        "documentation": {}
+    },
+    {
+        "label": "loader",
+        "kind": 5,
+        "importPath": "Indexer",
+        "description": "Indexer",
+        "peekOfCode": "loader = DirectoryLoader(\"./Data\", glob=\"**/*.pdf\")\nprint(\"pdf loaded loader\")\ndocuments = loader.load()\nprint(len(documents))\n# # Create embeddingsclear\nembeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=True)\n# # Create Semantic Text Splitter\n# text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type=\"interquartile\")\ntext_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,",
+        "detail": "Indexer",
+        "documentation": {}
+    },
+    {
+        "label": "documents",
+        "kind": 5,
+        "importPath": "Indexer",
+        "description": "Indexer",
+        "peekOfCode": "documents = loader.load()\nprint(len(documents))\n# # Create embeddingsclear\nembeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=True)\n# # Create Semantic Text Splitter\n# text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type=\"interquartile\")\ntext_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,\n    chunk_overlap=300,\n    add_start_index=True,",
+        "detail": "Indexer",
+        "documentation": {}
+    },
+    {
+        "label": "embeddings",
+        "kind": 5,
+        "importPath": "Indexer",
+        "description": "Indexer",
+        "peekOfCode": "embeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=True)\n# # Create Semantic Text Splitter\n# text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type=\"interquartile\")\ntext_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,\n    chunk_overlap=300,\n    add_start_index=True,\n)\n# # Split documents into chunks\ntexts = text_splitter.split_documents(documents)",
+        "detail": "Indexer",
+        "documentation": {}
+    },
+    {
+        "label": "text_splitter",
+        "kind": 5,
+        "importPath": "Indexer",
+        "description": "Indexer",
+        "peekOfCode": "text_splitter = RecursiveCharacterTextSplitter(\n    chunk_size=5000,\n    chunk_overlap=300,\n    add_start_index=True,\n)\n# # Split documents into chunks\ntexts = text_splitter.split_documents(documents)\n# # Create vector store\nvectorstore = Chroma.from_documents(\n    documents=texts, ",
+        "detail": "Indexer",
+        "documentation": {}
+    },
+    {
+        "label": "texts",
+        "kind": 5,
+        "importPath": "Indexer",
+        "description": "Indexer",
+        "peekOfCode": "texts = text_splitter.split_documents(documents)\n# # Create vector store\nvectorstore = Chroma.from_documents(\n    documents=texts, \n    embedding= embeddings,\n    persist_directory=\"./db-mawared\")\nprint(\"vectorstore created\")",
+        "detail": "Indexer",
+        "documentation": {}
+    },
+    {
+        "label": "vectorstore",
+        "kind": 5,
+        "importPath": "Indexer",
+        "description": "Indexer",
+        "peekOfCode": "vectorstore = Chroma.from_documents(\n    documents=texts, \n    embedding= embeddings,\n    persist_directory=\"./db-mawared\")\nprint(\"vectorstore created\")",
+        "detail": "Indexer",
+        "documentation": {}
+    },
+    {
+        "label": "save_conversation",
+        "kind": 2,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "def save_conversation(question, answer, file_path='Data/conversation_history.json'):\n    try:\n        with open(file_path, 'r') as file:\n            conversation_history = json.load(file)\n    except FileNotFoundError:\n        # If no history file is found, create a new one\n        conversation_history = []\n    # Append the current question-answer pair to the history\n    conversation_history.append({\"question\": question, \"answer\": answer})\n    # Save the updated conversation history to the file",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "ask_question",
+        "kind": 2,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "def ask_question(question):\n    print(\"Answer:\\t\", end=\" \", flush=True)\n    answer = \"\"\n    # Stream the output chunk by chunk\n    for chunk in rag_chain.stream(question):\n        print(chunk, end=\"\", flush=True)\n        answer += chunk\n    print(\"\\n\")  # Move to a new line after the response\n    # Save the conversation\n    save_conversation(question, answer)",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "load_conversation",
+        "kind": 2,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "def load_conversation(file_path='Data/conversation_history.json'):\n    try:\n        with open(file_path, 'r') as file:\n            return json.load(file)\n    except FileNotFoundError:\n        # If no history file exists, return an empty list\n        return []\n# Example usage\nif __name__ == \"__main__\":\n    print(\"Welcome to the Mawared HR RAG system. Type 'quit' to exit.\")",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"GROQ_API_KEY\"]",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "os.environ[\"GROQ_API_KEY\"] = os.getenv(\"GROQ_API\")\n# Create embeddings\nembeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=False)\n# Create the Chroma vector store\ndb = Chroma(persist_directory=\"./db-mawared\",\n            embedding_function=embeddings)\n# Create retriever\nretriever = db.as_retriever(\n    search_type=\"similarity\",\n    search_kwargs={\"k\": 5}  # Retrieve the top 5 most similar documents",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "embeddings",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "embeddings = OllamaEmbeddings(model=\"nomic-embed-text\", show_progress=False)\n# Create the Chroma vector store\ndb = Chroma(persist_directory=\"./db-mawared\",\n            embedding_function=embeddings)\n# Create retriever\nretriever = db.as_retriever(\n    search_type=\"similarity\",\n    search_kwargs={\"k\": 5}  # Retrieve the top 5 most similar documents\n)\n# Initialize the LLM (Groq's version of LLaMA)",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "db = Chroma(persist_directory=\"./db-mawared\",\n            embedding_function=embeddings)\n# Create retriever\nretriever = db.as_retriever(\n    search_type=\"similarity\",\n    search_kwargs={\"k\": 5}  # Retrieve the top 5 most similar documents\n)\n# Initialize the LLM (Groq's version of LLaMA)\nllm = ChatGroq(\n    model=\"llama-3.1-8b-instant\",",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "retriever",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "retriever = db.as_retriever(\n    search_type=\"similarity\",\n    search_kwargs={\"k\": 5}  # Retrieve the top 5 most similar documents\n)\n# Initialize the LLM (Groq's version of LLaMA)\nllm = ChatGroq(\n    model=\"llama-3.1-8b-instant\",\n    temperature=0,        # Deterministic output\n    max_tokens=None,\n    timeout=None,",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "llm",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "llm = ChatGroq(\n    model=\"llama-3.1-8b-instant\",\n    temperature=0,        # Deterministic output\n    max_tokens=None,\n    timeout=None,\n    max_retries=2\n)\n# Create a prompt template\ntemplate = \"\"\"\nYou are an expert assistant specializing in the Mawared HR System. Your role is to answer user questions by systematically reasoning through the provided context. Use Chain-of-Thought (CoT) reasoning to break down and solve complex questions. If the context is insufficient, ask clarifying questions to gather more information.",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "template",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "template = \"\"\"\nYou are an expert assistant specializing in the Mawared HR System. Your role is to answer user questions by systematically reasoning through the provided context. Use Chain-of-Thought (CoT) reasoning to break down and solve complex questions. If the context is insufficient, ask clarifying questions to gather more information.\nGuidelines:\nUse CoT Reasoning to break down the problem step-by-step.\nRefer only to the provided context for information.\nBe concise and direct in your final responses, but transparent in showing your reasoning process.\nIf context is insufficient, ask relevant follow-up questions to gather more information instead of speculating.\nRefine your response after analyzing each step, and verify all details.\nWhen responding to a question, follow these steps:\nAnalyze the Question:",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "prompt",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "prompt = ChatPromptTemplate.from_template(template)\n# Create the RAG chain using LCEL with prompt printing and streaming output\nrag_chain = (\n    {\"context\": retriever, \"question\": RunnablePassthrough()}\n    | prompt\n    | llm\n    | StrOutputParser()\n)\n# Function to save conversation history\ndef save_conversation(question, answer, file_path='Data/conversation_history.json'):",
+        "detail": "Main_rag",
+        "documentation": {}
+    },
+    {
+        "label": "rag_chain",
+        "kind": 5,
+        "importPath": "Main_rag",
+        "description": "Main_rag",
+        "peekOfCode": "rag_chain = (\n    {\"context\": retriever, \"question\": RunnablePassthrough()}\n    | prompt\n    | llm\n    | StrOutputParser()\n)\n# Function to save conversation history\ndef save_conversation(question, answer, file_path='Data/conversation_history.json'):\n    try:\n        with open(file_path, 'r') as file:",
+        "detail": "Main_rag",
+        "documentation": {}
+    }
+]

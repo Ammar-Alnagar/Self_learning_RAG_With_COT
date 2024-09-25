@@ -7,7 +7,7 @@ from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 
 # Load documents from a PDF file
-loader = DirectoryLoader("./data", glob="**/*.pdf")
+loader = DirectoryLoader("./Data", glob="**/*.pdf")
 
 print("pdf loaded loader")
 
@@ -22,7 +22,7 @@ embeddings = OllamaEmbeddings(model="nomic-embed-text", show_progress=True)
 # text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type="interquartile")
 
 text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1500,
+    chunk_size=5000,
     chunk_overlap=300,
     add_start_index=True,
 )
