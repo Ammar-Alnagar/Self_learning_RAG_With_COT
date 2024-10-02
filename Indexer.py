@@ -5,6 +5,8 @@ from langchain_community.document_loaders import DirectoryLoader
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 
+
+
 def index_conversations():
     # Load documents from a PDF file
     loader = DirectoryLoader("./Data", glob="**/*.pdf")
