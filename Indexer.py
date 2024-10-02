@@ -37,3 +37,6 @@ def index_conversations():
     )
 
     print("Vectorstore created and persisted.")
+
+if __name__ == "__main__":
+    index_conversations()
