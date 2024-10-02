@@ -1,9 +1,11 @@
-# indexer.py
-
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
+
+
+
+
 
 def index_conversations():
     # Load documents from a PDF file
@@ -35,3 +37,6 @@ def index_conversations():
     )
 
     print("Vectorstore created and persisted.")
+
+if __name__ == "__main__":
+    index_conversations()
