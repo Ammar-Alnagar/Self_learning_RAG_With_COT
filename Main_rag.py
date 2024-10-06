@@ -10,7 +10,7 @@ from langchain.schema.output_parser import StrOutputParser
 from Indexer import  index_conversations
 
 
-
+ 
 # Load environment variables (such as API keys)
 load_dotenv()
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API")
