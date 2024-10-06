@@ -8,7 +8,7 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
 from Indexer import  index_conversations
-
+ 
       
   
 # Load environment variables (such as API keys)
